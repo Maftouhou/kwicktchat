@@ -1,0 +1,31 @@
+{
+  "name": "saferoad",
+  "version": "1.0.0",
+  "description": "Roulons moins roulons mieux",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-rename": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mafotuh/safeRoad.git"
+  },
+  "author": "Maftouh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mafotuh/safeRoad/issues"
+  },
+  "homepage": "https://github.com/Mafotuh/safeRoad#readme"
+}

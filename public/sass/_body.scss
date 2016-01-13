@@ -1,0 +1,105 @@
+body {
+    background-image: url("img/royaldesign.jpg");
+
+    .wrapper{
+        width: 100%;
+        max-width: 450px;
+        border: 1px solid $vertMate;
+        margin: 0 auto;
+
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: $bleuPoussiereMate;
+            padding-top: 10px;
+
+            h1{
+                color: $vertMate;
+                font-family: arial;
+                font-size: 24px;
+                text-align: center;
+                vertical-align: middle;
+            }
+        }
+
+        section {
+            width: 100%;
+            &#home{
+                padding: 10px;
+                div{
+                    &#headInfoSection{
+                        padding-bottom: 40px;
+                        p{
+                            display: inline;
+                            color: $blanc;
+                            font-family: arial; 
+                            font-size: 14px;
+
+                            &:first-of-type{
+                                float:left;
+                            }
+                            &:last-of-type{
+                                float:right;
+                                text-decoration: none;
+                                color: $blanc;
+                            }
+
+                            span {
+                                color: $jaune;
+                            }
+                        }
+                    }
+
+                    &#mentionLegale{
+                        h4{
+                            color: $blanc;
+                            text-align: center;
+                            font-family: arial; 
+                            font-size: 16px;
+                            margin-bottom: 20px;
+                        }
+
+                        p{
+                            font-size: 12px;
+                            font-family: arial;
+                            color: $blanc;
+                            margin-bottom: 5px;
+
+                            &:nth-child(1){
+                                color: $jaune;
+                            }
+                            span{
+                                color: $jaune;
+                            }
+                        }
+                    }
+                }
+
+                h3{
+                    color: $blanc;
+                    text-align: center;
+                    font-family: arial; 
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            button, [type=submit], [type=button]{
+                width: 160px;
+                height: 30px;
+                border: 0;
+                background-color: $vertMate;
+                color: $blanc;
+                margin: 0 auto;
+                display: block;
+                margin-bottom: 40px;
+            }
+            
+            [type=button]{
+                border: 1px solid $vertMate;
+                background: none;
+                float: right;
+            }
+        }
+    }
+}
