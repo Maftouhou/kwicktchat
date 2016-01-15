@@ -1,5 +1,6 @@
 /*Import default Layout for the template
 Default Skin*/
+/*Animations Color */
 /*@import "_pinkSkin.scss";*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -33,10 +34,11 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  /*	background-image: url("img/editedChatMap.jpg");
-	background-repeat: no-repeat;
-	background-position: center;*/
+  background-image: url("img/img1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
   background-color: #3F5668;
+  background-size: cover;
   line-height: 1;
 }
 
@@ -91,6 +93,32 @@ a {
   padding-top: 15px;
 }
 
+/*Animations class*/
+.animateEl {
+  color: red;
+  animation-name: evtTitles;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes evtTitles {
+  20% {
+    color: #fff;
+  }
+  40% {
+    color: #DDAAFC;
+  }
+  60% {
+    color: #F5AAFC;
+  }
+  80% {
+    color: #FCAAE2;
+  }
+  100% {
+    color: #FDDCF3;
+  }
+}
+
 div#contentWrapper {
   width: 100%;
   max-width: 600px;
@@ -99,6 +127,7 @@ div#contentWrapper {
   border-bottom: 2px solid #fff;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
+  background-color: rgba(38, 52, 63, 0.5);
 }
 
 div#contentWrapper header {
@@ -195,6 +224,7 @@ div#contentWrapper section#signupSection form [type=text], div#contentWrapper se
   border: none;
   background: none;
   border-bottom: 1px solid #fff;
+  color: #fff;
 }
 
 div#contentWrapper section#signinSection {
@@ -231,6 +261,7 @@ div#contentWrapper section#signinSection form [type=text], div#contentWrapper se
   border: none;
   background: none;
   border-bottom: 1px solid #fff;
+  color: #fff;
 }
 
 div#contentWrapper section#userMember {
@@ -252,20 +283,42 @@ div#contentWrapper section#userMember #viewPort #mssgView {
 }
 
 div#contentWrapper section#userMember #viewPort #mssgView p {
-  margin-bottom: 5px;
+  margin: 5px;
+  word-wrap: break-word;
+  line-height: 24px;
+  font-size: 16px;
+  font-family: arial;
+}
+
+div#contentWrapper section#userMember #viewPort #mssgView p:nth-child(odd) {
+  color: #fff;
+  background-color: #748694;
+  border: 1px solid #fff;
+  display: block;
+}
+
+div#contentWrapper section#userMember #viewPort #mssgView p:nth-child(even) {
+  color: #062137;
+  background-color: #8FA5B6;
+  border: 1px solid #fff;
+  display: block;
 }
 
 div#contentWrapper section#userMember #viewPort #mssgView p span {
+  padding: 4px 10px 4px 4px;
+  color: #fff;
+  font-family: arial;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-left: none;
+  background-color: #42769E;
   margin-right: 5px;
 }
 
-div#contentWrapper section#userMember #viewPort #mssgView p span:first-of-type {
-  padding-right: 5px;
-  border-right: 1px solid gray;
-}
-
-div#contentWrapper section#userMember #viewPort #mssgView p span:last-of-type {
-  word-wrap: break-word;
+div#contentWrapper section#userMember #viewPort #mssgView p em {
+  font-family: arial;
+  font-style: italic;
+  font-size: 10px;
 }
 
 div#contentWrapper section#userMember #viewPort form {
@@ -277,7 +330,7 @@ div#contentWrapper section#userMember #viewPort form * {
 }
 
 div#contentWrapper section#userMember #viewPort form [type=submit] {
-  background: none;
+  background: #5596e6;
 }
 
 div#contentWrapper section#userMember aside {
@@ -290,7 +343,26 @@ div#contentWrapper section#userMember aside #userListView {
   overflow-y: scroll;
 }
 
+div#contentWrapper section#userMember aside #userListView ul li {
+  color: #fff;
+  font-size: 16px;
+  font-family: arial;
+  line-height: 20px;
+}
+
+div#contentWrapper section#userMember aside #userListView ul li:before {
+  content: '...';
+  position: relative;
+  color: #00a391;
+  width: 5px;
+  height: 5px;
+  background-color: #00a391;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
 div#contentWrapper section#userMember aside #signOut {
   margin-top: 20px;
-  background: none;
+  background: #f00;
+  border: none;
 }

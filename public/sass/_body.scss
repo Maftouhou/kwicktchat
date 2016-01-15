@@ -20,6 +20,22 @@
     padding-top: 15px;
 }
 
+/*Animations class*/
+.animateEl{
+    color: red;
+    animation-name: evtTitles;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes evtTitles {
+    20% {color: $blanc;}
+    40% {color: $vioLeger;}
+    60% {color: $vioLeger2;}
+    80% {color: $rozLeger;}
+    100% {color: $rozLeger2;}
+}
+
 div#contentWrapper{
     width: 100%;
     max-width: 600px; 
@@ -28,6 +44,8 @@ div#contentWrapper{
     border-bottom: 2px solid $blanc;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
+    background-color: rgba(38, 52, 63, 0.5);
+
 
     header {
         min-height: 50px;
@@ -118,6 +136,7 @@ div#contentWrapper{
                     border: none;
                     background: none;
                     border-bottom: 1px solid $blanc;
+                    color: $blanc;
                 }
             }
         }
@@ -153,6 +172,7 @@ div#contentWrapper{
                     border: none;
                     background: none;
                     border-bottom: 1px solid $blanc;
+                    color: $blanc;
                 }
             }
         }
@@ -169,16 +189,39 @@ div#contentWrapper{
                     height: 350px;
                     overflow-y: scroll;
                     p {
-                        margin-bottom: 5px;
+                        margin: 5px;
+                        word-wrap: break-word;
+                        line-height: 24px;
+                        font-size: 16px;
+                        font-family: arial;
+                        
+                        &:nth-child(odd){
+                            color: $blanc;
+                            background-color: $skyBlueA7;
+                            border: 1px solid $blanc;
+                            display: block;
+                        }
+                        &:nth-child(even){
+                            color: $txtBkyBlue;
+                            background-color: $skyBlueA9;
+                            border: 1px solid $blanc;
+                            display: block;
+                        }
+
                         span{
+                            padding: 4px 10px 4px 4px;
+                            color: $blanc;
+                            font-family: arial;
+                            font-size: 14px;
+                            border: 1px solid $blanc;
+                            border-left: none;
+                            background-color: $skyBlueLight;
                             margin-right: 5px;
-                            &:first-of-type{
-                                padding-right:5px;
-                                border-right: 1px solid gray;
-                            }
-                            &:last-of-type{
-                                word-wrap: break-word;
-                            }
+                        }
+                        em{
+                            font-family: arial;
+                            font-style: italic;
+                            font-size: 10px;
                         }
                     }
                 }
@@ -191,7 +234,7 @@ div#contentWrapper{
                     textarea{
                     }
                     [type=submit]{
-                        background: none;
+                        background: $lightBlue;
                     }
                 }
             }
@@ -203,14 +246,30 @@ div#contentWrapper{
                 #userListView{
                     height: 350px;
                     overflow-y: scroll;
+                    ul li{
+                        color: $blanc;
+                        font-size: 16px;
+                        font-family: arial;
+                        line-height: 20px;
+                        &:before{
+                            content:'...';
+                            position: relative;
+                            color: $vertMate;
+                            width: 5px;
+                            height: 5px;
+                            background-color: $vertMate;
+                            border-radius: 50%;
+                            margin-right: 5px;
+                        }
+                    }
                 }
 
                 #signOut{
                     margin-top: 20px;
-                    background: none;
+                    background: $rouge;
+                    border: none;
                 }
             }
         }
     }
-
 }
