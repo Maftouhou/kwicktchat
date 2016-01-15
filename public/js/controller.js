@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 	// GLOBALS !
 	var kwickApiUrl = 'http://greenvelvet.alwaysdata.net/kwick/api';
-	// location.reload();
 	// Get user information from localStorage
 	var userInfo = JSON.parse(localStorage.getItem('userInfo')),
 		userToken = userInfo.userToken,
@@ -22,8 +21,6 @@ $(document).ready(function(){
 			for (var i = 0; i<=loggedUser.length; i++) {
 				$('#userList').append('<li>'+loggedUser[i]+'</li>');
 			};
-
-			console.log(loggedUser);
 		}
 	});
 
@@ -36,25 +33,21 @@ $(document).ready(function(){
 	showMssgRequest.success(function(mssgFeedback){
 		if (mssgFeedback['result']['status'] === 'done') {
 
-			var loggedUser = mssgFeedback['result']['talk'].reverse();
+			var sentMssg = mssgFeedback['result']['talk'].reverse();
 
-			for (var i = 0; i<=loggedUser.length; i++) {
-				$('#userMessages').append('<li>'+loggedUser[i].content+'</li>');
+			for (var i = 0; i<=sentMssg.length; i++) {
+				$('#mssgView').append('<p><span>'+sentMssg[i].user_name+'</span><span>'+sentMssg[i].content+'</span></p>');
 			};
-
-			console.log(mssgFeedback['result']['talk']);
 		}
 	});
 
 	// Registration bihavior
 	$('#signupForm').on('submit', function(evt){
-		// Prevent page loading
 		evt.preventDefault();
-		alert('OK');
 		var pseudonym = $('#pseudonym').val(),
 			password = $('#password').val();
 
-		// Make Form Validation !!!
+		/* ======== Make Form Validation !!! ========= */
 		
 		var signupRequete = $.ajax({
 			url : kwickApiUrl+'/signup/'+pseudonym+'/'+password,
@@ -63,21 +56,20 @@ $(document).ready(function(){
 
 		signupRequete.success(function(signFeedback){
 			if (signFeedback['result']['status']==='done') {
-				console.log(signFeedback['result']['status']);
-				alert('vous allez etre rediriger vers la page de connexion');
-				// window.location.assign('#/connexion');
+				$('#signupNotification').empty();
+				window.location = 'connexion.html';
 			}
 			else{
-				alert(signFeedback['result']['status']+', '+ signFeedback['result']['message']); 
+				$('#signupNotification')
+				.append(signFeedback['result']['status']+', '+ signFeedback['result']['message'])
+				.addClass("errorEvt");
 			}
 		})
 	});
 	
 	// Signup bihavior
 	$('#signinForm').on('submit', function(evt){
-		// Prevent page loading
 		evt.preventDefault();
-
 		var userLogin = $('#login').val(),
 			passwd = $('#passwd').val();
 
@@ -94,18 +86,20 @@ $(document).ready(function(){
 					userToken : logFeedback['result']['token']
 				};
 
-				console.log(logFeedback['result']['status']);
-
 				var userInfoStored = JSON.stringify(userInfo);
 				localStorage.setItem('userInfo', userInfoStored);
 
 				var gotItem = localStorage.getItem('userInfo'),
 					parsedItem = JSON.parse(gotItem);
 
-				console.log(JSON.parse(localStorage.getItem('userInfo')));
-				window.location = '#/espace';
+
+				$('#loginNotification').empty();
+				window.location = 'espace.html';
+
 			}else{
-				alert(logFeedback['result']['status']+', '+ logFeedback['result']['message']); 
+				$('#loginNotification').empty()
+				.append(logFeedback['result']['status']+', '+ logFeedback['result']['message'])
+				.addClass('errorNotif'); 
 			}
 		});
 	});
@@ -113,24 +107,24 @@ $(document).ready(function(){
 	// Submit messages
 	$('#submitMessage').on('submit', function(evt){
 		evt.preventDefault();
-		// alert('message ok');
 		var userMssg = $('#messageId').val();
 
 		// Get user info from localStorage
 		var userInfo = JSON.parse(localStorage.getItem('userInfo'));
 		var userToken = userInfo.userToken,
 			userId = userInfo.userId;
-		console.log(userInfo, userToken, userId, userMssg);
 
 		var sendMssgRequest = $.ajax({
 			url : kwickApiUrl+'/say/'+userToken+'/'+userId+'/'+userMssg,
 			dataType : 'jsonp'
 		});
+
+		$('#messageId').empty();
+		// location.reload();
 	});
 
 	// Signout function
 	$('#signOut').on('click', function(){
-		// Signout function
 		var logoutRequest = $.ajax({
 			url : kwickApiUrl+'/logout/'+userToken+'/'+userId,
 			dataType : 'jsonp'
@@ -138,7 +132,7 @@ $(document).ready(function(){
 
 		logoutRequest.success(function(logoutFeedback){
 			if (logoutFeedback['result']['status'] === 'done') {
-				window.location = '#/';
+				window.location = 'index.html';
 			}
 		})
 	})

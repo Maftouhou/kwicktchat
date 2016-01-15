@@ -33,6 +33,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+/*	background-image: url("img/editedChatMap.jpg");
+	background-repeat: no-repeat;
+	background-position: center;*/
+	background-color: $skyBlue;
+
 	line-height: 1;
 
 	* {
@@ -56,6 +61,10 @@ table {
 	border-spacing: 0;
 }
 
+a {
+	text-decoration: none;
+	color: $blanc;
+}
 
 /*Imort Body Style sheet*/
 @import "_body.scss";

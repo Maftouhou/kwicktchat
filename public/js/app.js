@@ -20,6 +20,5 @@ app.config(function($stateProvider, $urlRouterProvider){
 		url: '/espace',
 		templateUrl: 'espace.html'
 	}); 
-
-	$urlRouterProvider.otherwise('/espace');
+	$urlRouterProvider.otherwise('/');
 });

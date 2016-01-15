@@ -1,17 +1,37 @@
-<section id="espaceMembre">
-	<div id="viewPort">
-		<!-- Display Message list  -->
-		<ul id="userMessages"></ul>
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Escpace membre Kwick Tchat</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+<div id="contentWrapper">
+	<header ng-include="'header.html'"></header>
+	<section id="userMember">
+		<div id="viewPort">
+			<!-- Display Message List  -->
+			<div id="mssgView"></div>
 
-		<!-- Display Message Form  -->
-		<form action="#" method="GET" id="submitMessage" novalidate>
-			<label for="messageId"><input type="text" id="messageId" placeholder="Votre nom d'utilisateur" required></label>
-			<input type="submit" value="Envoyer">
-		</form>
-	</div>
-</section>
-<aside>
-	<!-- Display User List  -->
-	<ul id="userList"></ul>
-	<button id="signOut">Déconnexion</button>
-</aside>
+			<!-- Display Message Form  -->
+			<form action="#" method="GET" id="submitMessage">
+				<!-- <input type="text" id="messageId" placeholder="Votre nom d'utilisateur" required> -->
+				<textarea name="message" id="messageId" cols="35" rows="3" placeholder="Votre nom d'utilisateur" required></textarea>
+				<input type="submit" class="btn" value="Envoyer &#9654;">
+			</form>
+		</div>
+		<aside>
+			<!-- Display User List  -->
+			<div id="userListView">
+				<ul id="userList"></ul>
+			</div>
+			<button id="signOut" class="btn">&#9668; Déconnexion</button>
+		</aside>
+	</section>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

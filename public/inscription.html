@@ -1,11 +1,28 @@
-<section id="signupSection">
-	<h3>inscrivez-vous pour acceder au room</h3>
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Inscription Kwick Tchat</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+<div id="contentWrapper">
+	<header ng-include="'header.html'"></header>
+	<section id="signupSection">
+		<h3>INSCRIPTION</h3>
+		<form action="#" method="GET" id="signupForm">
+			<label for="pseudonym">
+			<input type="text" id="pseudonym" placeholder="&nbsp;Votre nom d'utilisateur" required></label>
+			<label for="password">
+			<input type="password" id="password" placeholder="&nbsp;Votre mot de passe" required></label>
+			<input type="submit" class="btn" value="envoyer &#9654;">
+		</form>
+		<div id="signupNotification"></div>
+	</section>
+</div>
 
-	<form action="#" method="GET" id="signupForm" novalidate>
-		<label for="pseudonym">
-		<input type="text" id="pseudonym" placeholder="Votre nom d'utilisateur" required></label>
-		<label for="password">
-		<input type="password" id="password" placeholder="Votre mot de passe" required></label>
-		<input type="submit" value="envoyer">
-	</form>
-</section>
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

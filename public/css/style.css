@@ -33,6 +33,10 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
+  /*	background-image: url("img/editedChatMap.jpg");
+	background-repeat: no-repeat;
+	background-position: center;*/
+  background-color: #3F5668;
   line-height: 1;
 }
 
@@ -59,110 +63,234 @@ table {
   border-spacing: 0;
 }
 
-/*Imort Body Style sheet*/
-body {
-  background-image: url("img/royaldesign.jpg");
-}
-
-body .wrapper {
-  width: 100%;
-  max-width: 450px;
-  border: 1px solid #00a391;
-  margin: 0 auto;
-}
-
-body .wrapper header {
-  width: 100%;
-  height: 50px;
-  background-color: #26343F;
-  padding-top: 10px;
-}
-
-body .wrapper header h1 {
-  color: #00a391;
-  font-family: arial;
-  font-size: 24px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-body .wrapper section {
-  width: 100%;
-}
-
-body .wrapper section#home {
-  padding: 10px;
-}
-
-body .wrapper section#home div#headInfoSection {
-  padding-bottom: 40px;
-}
-
-body .wrapper section#home div#headInfoSection p {
-  display: inline;
-  color: #fff;
-  font-family: arial;
-  font-size: 14px;
-}
-
-body .wrapper section#home div#headInfoSection p:first-of-type {
-  float: left;
-}
-
-body .wrapper section#home div#headInfoSection p:last-of-type {
-  float: right;
+a {
   text-decoration: none;
   color: #fff;
 }
 
-body .wrapper section#home div#headInfoSection p span {
-  color: yellow;
+/*Imort Body Style sheet*/
+.btn {
+  border: 1px solid #00a391;
+  padding: 6px 10px;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  font-family: arial;
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
 }
 
-body .wrapper section#home div#mentionLegale h4 {
-  color: #fff;
+.errorNotif {
+  background-color: #FF8080;
+  height: 40px;
   text-align: center;
+  color: #fff;
   font-family: arial;
   font-size: 16px;
-  margin-bottom: 20px;
+  padding-top: 15px;
 }
 
-body .wrapper section#home div#mentionLegale p {
-  font-size: 12px;
-  font-family: arial;
+div#contentWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 500px;
+  border-bottom: 2px solid #fff;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+div#contentWrapper header {
+  min-height: 50px;
+  height: auto;
+  padding-top: 15px;
+  vertical-align: top;
+  border-bottom: 1px solid #fff;
+  padding: 5px;
+  background-color: #26343F;
+}
+
+div#contentWrapper header * {
+  display: inline;
+}
+
+div#contentWrapper header span {
+  width: 20%;
+  float: left;
+}
+
+div#contentWrapper header span a {
+  float: left;
+}
+
+div#contentWrapper header h1 {
+  width: 30%;
+  position: relative;
+  top: 10px;
   color: #fff;
+  font-size: 24px;
+  font-family: arial;
+}
+
+div#contentWrapper header aside {
+  float: right;
+  width: 40%;
+}
+
+div#contentWrapper header aside a {
+  float: right;
+  margin-right: 5px;
+}
+
+div#contentWrapper section#homeContent {
+  padding-top: 200px;
+  text-align: center;
+}
+
+div#contentWrapper section#homeContent h3 {
+  margin: 0 auto;
+  font-family: arial;
+  font-size: 30px;
+  color: #fff;
+}
+
+div#contentWrapper section#homeContent #homeBtn {
+  position: relative;
+  top: 20px;
+  background-color: #00a391;
+}
+
+div#contentWrapper section#signupSection {
+  padding-top: 150px;
+}
+
+div#contentWrapper section#signupSection h3 {
+  text-align: center;
+  font-family: arial;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+div#contentWrapper section#signupSection form {
+  display: block;
+}
+
+div#contentWrapper section#signupSection form input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+div#contentWrapper section#signupSection form [type=submit] {
+  background: #00a391;
+  padding: 6px 20px;
+  text-align: center;
+}
+
+div#contentWrapper section#signupSection form [type=text], div#contentWrapper section#signupSection form [type=password] {
+  width: 250px;
+  height: 30px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #fff;
+}
+
+div#contentWrapper section#signinSection {
+  padding-top: 150px;
+}
+
+div#contentWrapper section#signinSection h3 {
+  text-align: center;
+  font-family: arial;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+div#contentWrapper section#signinSection form {
+  display: block;
+}
+
+div#contentWrapper section#signinSection form input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+div#contentWrapper section#signinSection form [type=submit] {
+  background: #00a391;
+  padding: 6px 20px;
+  text-align: center;
+}
+
+div#contentWrapper section#signinSection form [type=text], div#contentWrapper section#signinSection form [type=password] {
+  width: 250px;
+  height: 30px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #fff;
+}
+
+div#contentWrapper section#userMember {
+  padding: 5px;
+}
+
+div#contentWrapper section#userMember #viewPort, div#contentWrapper section#userMember aside {
+  display: inline;
+}
+
+div#contentWrapper section#userMember #viewPort {
+  width: 65%;
+  float: left;
+}
+
+div#contentWrapper section#userMember #viewPort #mssgView {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+div#contentWrapper section#userMember #viewPort #mssgView p {
   margin-bottom: 5px;
 }
 
-body .wrapper section#home div#mentionLegale p:nth-child(1) {
-  color: yellow;
+div#contentWrapper section#userMember #viewPort #mssgView p span {
+  margin-right: 5px;
 }
 
-body .wrapper section#home div#mentionLegale p span {
-  color: yellow;
+div#contentWrapper section#userMember #viewPort #mssgView p span:first-of-type {
+  padding-right: 5px;
+  border-right: 1px solid gray;
 }
 
-body .wrapper section#home h3 {
-  color: #fff;
-  text-align: center;
-  font-family: arial;
-  font-size: 20px;
-  margin-bottom: 20px;
+div#contentWrapper section#userMember #viewPort #mssgView p span:last-of-type {
+  word-wrap: break-word;
 }
 
-body .wrapper section button, body .wrapper section [type=submit], body .wrapper section [type=button] {
-  width: 160px;
-  height: 30px;
-  border: 0;
-  background-color: #00a391;
-  color: #fff;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 40px;
+div#contentWrapper section#userMember #viewPort form {
+  padding-top: 20px;
 }
 
-body .wrapper section [type=button] {
-  border: 1px solid #00a391;
+div#contentWrapper section#userMember #viewPort form * {
+  vertical-align: top;
+}
+
+div#contentWrapper section#userMember #viewPort form [type=submit] {
   background: none;
+}
+
+div#contentWrapper section#userMember aside {
+  width: 25%;
   float: right;
+}
+
+div#contentWrapper section#userMember aside #userListView {
+  height: 350px;
+  overflow-y: scroll;
+}
+
+div#contentWrapper section#userMember aside #signOut {
+  margin-top: 20px;
+  background: none;
 }

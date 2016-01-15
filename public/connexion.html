@@ -1,11 +1,29 @@
-<section id="signinSection">
-	<h3>Connecter-vous pour acceder au room</h3>
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Connexion Kwick Tchat</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+<div id="contentWrapper">
+	<header ng-include="'header.html'"></header>
+	<section id="signinSection">
+		<h3>CONNEXTION </h3>
 
-	<form action="#" method="GET" id="signinForm">
-		<label for="login">
-		<input type="text" id="login" placeholder="Votre nom d'utilisateur" required></label>
-		<label for="passwd">
-		<input type="password" id="passwd" placeholder="Votre mot de passe" required></label>
-		<input type="submit" value="envoyer">
-	</form>
-</section>
+		<form action="#" method="GET" id="signinForm">
+			<label for="login">
+			<input type="text" id="login" placeholder="&nbsp;Votre nom d'utilisateur" required></label>
+			<label for="passwd">
+			<input type="password" id="passwd" placeholder="&nbsp;Votre mot de passe" required></label>
+			<input type="submit" class="btn" value="envoyer &#9654;">
+		</form>
+		<div id="loginNotification"></div>
+	</section>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>
