@@ -3,60 +3,6 @@ $(document).ready(function(){
 	// GLOBALS !
 	var kwickApiUrl = 'http://greenvelvet.alwaysdata.net/kwick/api';
 	// Get user information from localStorage
-	var userInfo = JSON.parse(localStorage.getItem('userInfo')),
-		userToken = userInfo.userToken,
-		userId = userInfo.userId;
-
-	// Display user list and messages
-	var displayUserMssg = function (){
-
-		// Display user list 
-		var showUserRequest = $.ajax({
-			url : kwickApiUrl+'/user/logged/'+userToken,
-			dataType : 'jsonp'
-		});
-
-		showUserRequest.success(function(sayFeedback){
-			if (sayFeedback['result']['status'] === 'done') {
-
-				var loggedUser = sayFeedback['result']['user'];
-
-				$('#userList').empty();
-				for (var i = 0; i<loggedUser.length; i++) {
-					$('#userList').append('<li>'+loggedUser[i]+'</li>');
-				}
-			}
-		});
-
-		// Display Message list 
-		var showMssgRequest = $.ajax({
-			url : kwickApiUrl+'/talk/list/'+userToken+'/0',
-			dataType : 'jsonp'
-		});
-
-		showMssgRequest.success(function(mssgFeedback){
-			if (mssgFeedback['result']['status'] === 'done') {
-
-				var sentMssg = mssgFeedback['result']['talk'].reverse();
-
-				$('#mssgView').empty();
-				for (var i = 0; i<sentMssg.length; i++) {
-					var timestamp = new Date(sentMssg[i].timestamp*1000),
-						hours = timestamp.getHours(),
-						minutes = "0" + timestamp.getMinutes(),
-						seconds = "0" + timestamp.getSeconds();
-					
-					var sentTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-					$('#mssgView').append('<p><span>'+sentMssg[i].user_name+'</span><em> @'+sentTime+' </em>'+' '+sentMssg[i].content+'</p>');
-				};
-			}
-		});
-	}
-
-	// Display User and Messages 
-	displayUserMssg();
-	setInterval(displayUserMssg, 1000);
 
 	// Registration bihavior
 	$('#signupForm').on('submit', function(evt){
@@ -84,7 +30,7 @@ $(document).ready(function(){
 		})
 	});
 	
-	// Signup bihavior
+	// Signin bihavior
 	$('#signinForm').on('submit', function(evt){
 		evt.preventDefault();
 		var userLogin = $('#login').val(),
@@ -113,12 +59,95 @@ $(document).ready(function(){
 				$('#loginNotification').empty();
 				window.location = 'espace.html';
 
+				setTimeout(function(){ 
+					console.log('vous etes sur espace');
+				}, 1000);
+
 			}else{
+				
 				$('#loginNotification').empty()
 				.append(logFeedback['result']['status']+', '+ logFeedback['result']['message'])
 				.addClass('errorNotif'); 
 			}
+
+				console.log(logFeedback['result']['status'] + '1');
+
+				// afficher les utilisateur et les messages
+				var userInfo = JSON.parse(localStorage.getItem('userInfo')),
+					userToken = userInfo.userToken,
+					userId = userInfo.userId;
+
+				// Display user list and messages
+				var displayUserMssg = function (){
+
+
+					// Display user list 
+					var showUserRequest = $.ajax({
+						url : kwickApiUrl+'/user/logged/'+userToken,
+						dataType : 'jsonp'
+					});
+
+					showUserRequest.success(function(sayFeedback){
+						if (sayFeedback['result']['status'] === 'done') {
+
+
+							var loggedUser = sayFeedback['result']['user'];
+
+							$('#userList').empty();
+							for (var i = 0; i<loggedUser.length; i++) {
+								$('#userList').append('<li>'+loggedUser[i]+'</li>');
+								console.log(loggedUser);
+							}
+						}
+					});
+
+					// Display Message list 
+					var showMssgRequest = $.ajax({
+						url : kwickApiUrl+'/talk/list/'+userToken+'/0',
+						dataType : 'jsonp'
+					});
+
+					showMssgRequest.success(function(mssgFeedback){
+						if (mssgFeedback['result']['status'] === 'done') {
+
+							var sentMssg = mssgFeedback['result']['talk'].reverse();
+
+							// $('#mssgView').empty();
+							for (var i = 0; i<sentMssg.length; i++) {
+								var timestamp = new Date(sentMssg[i].timestamp*1000),
+									hours = timestamp.getHours(),
+									minutes = "0" + timestamp.getMinutes(),
+									seconds = "0" + timestamp.getSeconds();
+								
+								var sentTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+								console.log(sentMssg);
+								$('#mssgView').append('<p><span>'+sentMssg[i].user_name+'</span><em> @'+sentTime+' </em>'+' '+sentMssg[i].content+'</p>');
+							};
+						}
+					});
+				}
+
+				// Display User and Messages 
+				displayUserMssg();
+				setInterval(displayUserMssg, 9000);
+
+				// Signout function
+				$('#signOut').on('click', function(){
+					var logoutRequest = $.ajax({
+						url : kwickApiUrl+'/logout/'+userToken+'/'+userId,
+						dataType : 'jsonp'
+					});
+
+					logoutRequest.success(function(logoutFeedback){
+						if (logoutFeedback['result']['status'] === 'done') {
+							window.location = 'index.html';
+						}
+					})
+				})
+
 		});
+
 	});
 
 	// Submit messages
@@ -139,21 +168,8 @@ $(document).ready(function(){
 		$('#messageId').val('');
 		// location.reload();
 	});
-
-	// Signout function
-	$('#signOut').on('click', function(){
-		var logoutRequest = $.ajax({
-			url : kwickApiUrl+'/logout/'+userToken+'/'+userId,
-			dataType : 'jsonp'
-		});
-
-		logoutRequest.success(function(logoutFeedback){
-			if (logoutFeedback['result']['status'] === 'done') {
-				window.location = 'index.html';
-			}
-		})
-	})
-		var currentPage = window.location.href;
+		
+	var currentPage = window.location.href;
 
 	if (currentPage == 'http://127.0.0.1:8080/espace.html') {
 		setTimeout(function(){ 
