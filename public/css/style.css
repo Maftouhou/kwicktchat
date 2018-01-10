@@ -187,7 +187,8 @@ div#contentWrapper section#homeContent h3 {
 div#contentWrapper section#homeContent #homeBtn {
   position: relative;
   top: 20px;
-  background-color: #00a391;
+  /* background-color: #00a391; */
+  background-color: #a30000;
 }
 
 div#contentWrapper section#signupSection {
